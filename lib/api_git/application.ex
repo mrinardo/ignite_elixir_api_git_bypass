@@ -8,7 +8,7 @@ defmodule ApiGit.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      # ApiGit.Repo,
+      ApiGit.Repo,
       # Start the Telemetry supervisor
       ApiGitWeb.Telemetry,
       # Start the PubSub system
