@@ -10,6 +10,18 @@ use Mix.Config
 config :api_git,
   ecto_repos: [ApiGit.Repo]
 
+config :api_git, ApiGit.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
+config :api_git, ApiGitWeb.Auth.Guardian,
+  issuer: "api_git",
+  secret_key: "5BcWCAIM4eqbZyfp3UP59/jtenL2dJBuSnovLTO7LDuwqctsfcFQu6QQ6CDGNHQB"
+
+config :api_git, ApiGitWeb.Auth.Pipeline,
+  module: ApiGitWeb.Auth.Guardian,
+  error_handler: ApiGitWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :api_git, ApiGitWeb.Endpoint,
   url: [host: "localhost"],

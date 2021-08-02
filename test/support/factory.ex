@@ -1,6 +1,21 @@
 defmodule ApiGit.Factory do
   use ExMachina.Ecto, repo: ApiGit.Repo
 
+  alias ApiGit.User
+
+  def user_params_factory do
+    %{
+      "senha" => "12345678"
+    }
+  end
+
+  def user_factory do
+    %User{
+      id: "7c9e684f-be33-4593-946d-58f5bba2e0c2",
+      senha: "12345678"
+    }
+  end
+
   # https://hexdocs.pm/ex_machina/2.3.0/readme.html#non-map-factories
   def user_repos_response_factory(_attrs) do
     ~s([

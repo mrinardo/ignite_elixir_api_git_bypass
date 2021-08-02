@@ -1,4 +1,4 @@
-defmodule ApiGit.Users.GetRepos do
+defmodule ApiGit.Github.GetRepos do
   alias ApiGit.Client.Client
 
   def call(username) do

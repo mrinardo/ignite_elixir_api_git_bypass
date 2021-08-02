@@ -5,10 +5,21 @@ defmodule ApiGitWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug ApiGitWeb.Auth.Pipeline
+  end
+
+  scope "/api", ApiGitWeb do
+    pipe_through [:api, :auth]
+
+    get "/:id", ReposController, :show
+  end
+
   scope "/api", ApiGitWeb do
     pipe_through :api
 
-    get "/:id", ReposController, :show
+    post "/users", UsersController, :create
+    post "/users/login", UsersController, :login
   end
 
   # Enables LiveDashboard only for development

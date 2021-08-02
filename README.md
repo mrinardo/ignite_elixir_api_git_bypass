@@ -1,8 +1,12 @@
 # ApiGit
 
-This simple Phoenix REST API application exposes one route ("/api/<github_username>") to get the list repositories of the passed username on GitHub.
+This simple Phoenix REST API application exposes a route ("/api/<github_username>") to get the list repositories of the passed username on GitHub.
 
-This is [challenge #2](https://www.notion.so/Desafio-02-Testando-requisi-es-com-bypass-e67ba498dee64089ac32e872812d20f6) of Rocketseat's Ignite Elixir module 6.
+New users can be created through "/api/users", passing a password as body parameter ({senha: "my_password"}).
+
+To authenticate, call "/api/login", passing your user id and password. This will return a JWT token you can use to call the API's main resource.
+
+This covers [challenge #2](https://www.notion.so/Desafio-02-Testando-requisi-es-com-bypass-e67ba498dee64089ac32e872812d20f6) of Rocketseat's Ignite Elixir module 6 and [challenge #1](https://www.notion.so/Desafio-01-Autentica-o-JWT-5c2fd6b53afb41b8b9f053deedecdf2f) of Rocketseat's Ignite Elixir module 7.
 
 To start your Phoenix server:
 
